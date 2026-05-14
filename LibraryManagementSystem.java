@@ -1,7 +1,6 @@
 import java.io.*;
 import java.util.*;
 
-// ----------- Book Class -----------
 class Book implements Serializable {
     private String title;
     private String author;
@@ -53,7 +52,7 @@ class Book implements Serializable {
     }
 }
 
-// ----------- Library Class -----------
+
 class Library {
     private HashMap<String, Book> books; // ISBN -> Book
 
@@ -123,7 +122,6 @@ class Library {
         }
     }
 
-    // Save library data to file
     public void saveToFile(String filename) {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename))) {
             out.writeObject(books);
@@ -133,7 +131,6 @@ class Library {
         }
     }
 
-    // Load library data from file
     public void loadFromFile(String filename) {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
             books = (HashMap<String, Book>) in.readObject();
@@ -146,7 +143,6 @@ class Library {
     }
 }
 
-// ----------- Main Class -----------
 public class LibraryManagementSystem {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -168,7 +164,7 @@ public class LibraryManagementSystem {
             System.out.println("7) Save and Exit");
             System.out.print("Enter your choice: ");
             int choice = sc.nextInt();
-            sc.nextLine(); // consume newline
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
